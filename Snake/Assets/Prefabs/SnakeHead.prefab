@@ -90,8 +90,8 @@ MonoBehaviour:
   bodyList: []
   velocity: 0.35
   step: 30
-  eatClip: {fileID: 8300000, guid: ed2f178da0347e144b360bd45dd8fed6, type: 3}
-  dieClip: {fileID: 8300000, guid: b973c078365b22e4392753cc963d9970, type: 3}
+  eatClip: {fileID: 8300000, guid: d32de075f93b89447ab08bbe728e9604, type: 3}
+  dieClip: {fileID: 8300000, guid: 54fdad4b68ec24f488ea529497abe065, type: 3}
   dieEffect: {fileID: 1869509813425396, guid: 059a58b7031b96840ac6bb10f03ccfae, type: 3}
   bodyPrefab: {fileID: 1151471448832472, guid: da5eca1558c3c4e40b1f0da60ce585dd, type: 3}
   bodySprites:
