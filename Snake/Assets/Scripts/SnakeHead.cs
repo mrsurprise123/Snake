@@ -25,7 +25,6 @@ public class SnakeHead : MonoBehaviour
     {
         //Time.timeScale = 1;
         canvas = GameObject.Find("Canvas").transform;
-        //通过Resources.Load(string path)方法加载资源，path的书写不需要加Resources/以及文件扩展名
         gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(PlayerPrefs.GetString("snake_head", "head2"));
         bodySprites[0] = Resources.Load<Sprite>(PlayerPrefs.GetString("snake_body_01", "body_blue_01"));
         bodySprites[1] = Resources.Load<Sprite>(PlayerPrefs.GetString("snake_body_02", "body_blue_02"));
@@ -73,21 +72,15 @@ public class SnakeHead : MonoBehaviour
 
     void Move()
     {
-        headPos = gameObject.transform.localPosition;                                               //保存下来蛇头移动前的位置
-        gameObject.transform.localPosition = new Vector3(headPos.x + x, headPos.y + y, headPos.z);  //蛇头向期望位置移动
+        headPos = gameObject.transform.localPosition;                                               
+        gameObject.transform.localPosition = new Vector3(headPos.x + x, headPos.y + y, headPos.z);  
         if (bodyList.Count > 0)
         {
-            //由于我们是双色蛇身，此方法弃用
-            //bodyList.Last().localPosition = headPos;                                              //将蛇尾移动到蛇头移动前的位置
-            //bodyList.Insert(0, bodyList.Last());                                                  //将蛇尾在List中的位置更新到最前
-            //bodyList.RemoveAt(bodyList.Count - 1);                                                //移除List最末尾的蛇尾引用
-
-            //由于我们是双色蛇身，使用此方法达到显示目的
-            for (int i = bodyList.Count - 2; i >= 0; i--)                                           //从后往前开始移动蛇身
+            for (int i = bodyList.Count - 2; i >= 0; i--)                                          
             {
-                bodyList[i + 1].localPosition = bodyList[i].localPosition;                          //每一个蛇身都移动到它前面一个节点的位置
+                bodyList[i + 1].localPosition = bodyList[i].localPosition;                         
             }
-            bodyList[0].localPosition = headPos;                                                    //第一个蛇身移动到蛇头移动前的位置
+            bodyList[0].localPosition = headPos;                                                    
         }
     }
 
